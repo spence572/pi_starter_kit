@@ -5,7 +5,7 @@ from Tkinter import *           # tkinter provides the graphical user interface 
 import RPi.GPIO as GPIO
 import time, math
 
-C = 0.38 # uF - Tweek this value around 0.33 to improve accuracy
+C = 0.53 # uF - Tweek this value around 0.33 to improve accuracy
 R1 = 1000 # Ohms
 B = 3800.0 # The thermistor constant - change this for a different thermistor
 R0 = 1000.0 # The resistance of the thermistor at 25C -change for different thermistor
@@ -103,7 +103,8 @@ class App:
         temp_c = read_temp_c()
         reading_str = "{:.2f}".format(temp_c)
         self.reading_label.configure(text=reading_str)
-        self.master.after(500, self.update_reading) # schedule yourself to be called after 0.5 seconds
+        self.master.after(5000, self.update_reading) # schedule yourself to be called after 5 seconds
+	print(temp_c)
 
 # Set the GUI running, give the window a title, size and position
 root = Tk()
